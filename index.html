@@ -339,20 +339,19 @@ input::placeholder { color: rgba(140,145,190,0.6); font-size: 11px; }
 
 /* ---- THEME TOGGLE ---- */
 .theme-toggle {
-  position: fixed; top: calc(var(--safe-top) + 12px); right: 16px;
-  z-index: 200;
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 20px;
-  padding: 6px 12px;
+  padding: 4px 10px;
   cursor: pointer;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 10px;
   color: var(--text-dim);
-  display: flex; align-items: center; gap: 6px;
-  box-shadow: 0 2px 8px var(--shadow);
+  display: inline-flex; align-items: center; gap: 6px;
+  box-shadow: 0 1px 4px var(--shadow);
   transition: all 0.2s;
   letter-spacing: 1px;
+  margin-top: 6px;
 }
 .theme-toggle:active { transform: scale(0.95); }
 .theme-toggle .toggle-track {
@@ -416,11 +415,6 @@ body.dark .theme-toggle .toggle-thumb { transform: translateX(12px); }
 <div class="grid-bg"></div>
 <div class="scan-line"></div>
 
-<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
-  <span id="themeIcon">☀️</span>
-  <div class="toggle-track"><div class="toggle-thumb"></div></div>
-</button>
-
 <div id="app">
   <!-- HEADER -->
   <div class="header">
@@ -428,6 +422,10 @@ body.dark .theme-toggle .toggle-thumb { transform: translateX(12px); }
       <div class="brand">
         <h1>RENTAL OPS</h1>
         <p>TORN CITY PROPERTY MONITOR</p>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+          <span id="themeIcon">☀️</span>
+          <div class="toggle-track"><div class="toggle-thumb"></div></div>
+        </button>
       </div>
       <div class="clock-block">
         <div class="clock-lbl">TORN CITY TIME (UTC)</div>
@@ -480,7 +478,7 @@ body.dark .theme-toggle .toggle-thumb { transform: translateX(12px); }
   <div class="footer">
     <div>TORN RENTAL OPS · UTC = TORN CITY TIME</div>
     <div>ALERTS: 24H · 12H · 1H · EXPIRY</div>
-    <div class="dev">DEVELOPED BY SLAMBGAMER</div>
+    <div class="dev">DEVELOPED BY SlamberGamer</div>
   </div>
 </div>
 
