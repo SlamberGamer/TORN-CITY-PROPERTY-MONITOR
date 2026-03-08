@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-<meta name="theme-color" content="#0d47a1"/>
+<meta name="theme-color" content="#a78bfa"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="apple-mobile-web-app-title" content="Rental Ops"/>
@@ -14,19 +14,19 @@
 <title>Torn Rental Ops</title>
 <style>
 :root {
-  --bg:        #080b0f;
-  --bg2:       #0d1420;
-  --bg3:       #0a1220;
-  --border:    rgba(0,100,180,0.25);
-  --accent:    #4fc3f7;
-  --accent2:   #1565c0;
-  --text:      #c8d8e8;
-  --text-dim:  #546e7a;
-  --text-faint:#263238;
-  --green:     #39ff14;
-  --orange:    #ff8c00;
-  --red:       #ff2244;
-  --gold:      #ffd700;
+  --bg:        #f0f4ff;
+  --bg2:       #e8eeff;
+  --bg3:       #eef1ff;
+  --border:    rgba(150,160,220,0.35);
+  --accent:    #7c83e0;
+  --accent2:   #a78bfa;
+  --text:      #3d3f6e;
+  --text-dim:  #8486b0;
+  --text-faint:#b0b3d6;
+  --green:     #6edcb0;
+  --orange:    #ffb347;
+  --red:       #ff7eb3;
+  --gold:      #ffd580;
   --mono:      'JetBrains Mono', 'Courier New', monospace;
   --display:   'Bebas Neue', sans-serif;
   --safe-top:  env(safe-area-inset-top, 0px);
@@ -39,22 +39,23 @@ body {
   font-family: var(--mono);
   color: var(--text);
   overscroll-behavior: none;
+  background-image: radial-gradient(circle at 20% 20%, rgba(167,139,250,0.12) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(124,131,224,0.1) 0%, transparent 50%);
 }
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: #c4c8f0; border-radius: 2px; }
 
 /* ---- BACKGROUND ---- */
 .grid-bg {
   position: fixed; inset: 0; pointer-events: none; z-index: 0;
   background-image:
-    linear-gradient(rgba(0,120,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,120,255,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(124,131,224,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,131,224,0.08) 1px, transparent 1px);
   background-size: 36px 36px;
 }
 .scan-line {
   position: fixed; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0,180,255,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(167,139,250,0.25), transparent);
   animation: scan 6s linear infinite;
   pointer-events: none; z-index: 1;
 }
@@ -101,19 +102,19 @@ body {
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
 .sync-txt { font-size: 8px; letter-spacing: 1px; }
 .btn-sync {
-  background: rgba(0,80,150,0.2); border: 1px solid var(--border);
-  color: #64b5f6; font-size: 9px; padding: 2px 8px; cursor: pointer;
+  background: rgba(124,131,224,0.15); border: 1px solid var(--border);
+  color: #7c83e0; font-size: 9px; padding: 2px 8px; cursor: pointer;
   font-family: var(--mono); letter-spacing: 1px; border-radius: 2px;
 }
 
 /* ---- NOTIF BANNER ---- */
 .notif-banner {
-  background: rgba(255,140,0,0.08);
-  border: 1px solid rgba(255,140,0,0.3);
+  background: rgba(255,179,71,0.1);
+  border: 1px solid rgba(255,179,71,0.35);
   padding: 10px 14px; margin-top: 12px;
   display: flex; align-items: center; justify-content: space-between; gap: 10px;
 }
-.notif-banner span { font-size: 10px; color: #ffb300; flex: 1; }
+.notif-banner span { font-size: 10px; color: #c8860a; flex: 1; }
 
 /* ---- STATS BAR ---- */
 .stats-bar {
@@ -121,8 +122,9 @@ body {
   gap: 8px; margin-bottom: 18px;
 }
 .stat-card {
-  background: var(--bg2);
+  background: #ffffff;
   border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(124,131,224,0.07);
   padding: 12px 10px;
 }
 .stat-lbl { font-size: 8px; color: var(--text-faint); letter-spacing: 2px; margin-bottom: 4px; }
@@ -137,9 +139,9 @@ body {
 
 /* ---- BUTTONS ---- */
 .btn-primary {
-  background: linear-gradient(135deg, #0d47a1, #1565c0);
-  color: #90caf9;
-  border: 1px solid #1976d2;
+  background: linear-gradient(135deg, #a78bfa, #7c83e0);
+  color: #ffffff;
+  border: 1px solid #c4b5fd;
   padding: 10px 18px;
   cursor: pointer;
   font-family: var(--mono);
@@ -148,33 +150,33 @@ body {
   border-radius: 2px; transition: all .2s;
   white-space: nowrap;
 }
-.btn-primary:active { transform: scale(0.97); }
+.btn-primary:active { transform: scale(0.97); opacity: 0.9; }
 .btn-sm {
   padding: 7px 14px; font-size: 10px; letter-spacing: 1px;
 }
 .btn-danger {
-  background: rgba(180,0,0,0.15); color: var(--red);
-  border: 1px solid rgba(255,34,68,0.3);
+  background: rgba(255,126,179,0.12); color: #e05585;
+  border: 1px solid rgba(255,126,179,0.4);
   padding: 8px 14px; cursor: pointer;
   font-family: var(--mono); font-size: 10px;
   letter-spacing: 1px; text-transform: uppercase;
   border-radius: 2px; transition: all .2s;
 }
-.btn-danger:active { background: rgba(180,0,0,0.4); }
+.btn-danger:active { background: rgba(255,126,179,0.25); }
 .btn-edit {
-  background: rgba(0,100,180,0.15); color: #64b5f6;
-  border: 1px solid rgba(100,181,246,0.3);
+  background: rgba(124,131,224,0.12); color: #7c83e0;
+  border: 1px solid rgba(124,131,224,0.4);
   padding: 8px 14px; cursor: pointer;
   font-family: var(--mono); font-size: 10px;
   letter-spacing: 1px; text-transform: uppercase;
   border-radius: 2px; transition: all .2s;
 }
-.btn-edit:active { background: rgba(0,100,180,0.4); }
+.btn-edit:active { background: rgba(124,131,224,0.25); }
 
 /* ---- FORM PANEL ---- */
 .form-panel {
-  background: rgba(10,18,32,0.97);
-  border: 1px solid rgba(0,130,255,0.3);
+  background: rgba(240,244,255,0.97);
+  border: 1px solid rgba(124,131,224,0.35);
   padding: 16px; margin-bottom: 16px;
   animation: slideDown .2s ease;
 }
@@ -184,8 +186,8 @@ body {
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .field-lbl { font-size: 9px; color: var(--text-faint); letter-spacing: 2px; margin-bottom: 5px; }
 input, select {
-  background: rgba(13,20,30,0.9);
-  border: 1px solid rgba(0,100,180,0.3);
+  background: #ffffff;
+  border: 1px solid rgba(150,160,220,0.4);
   color: var(--text);
   padding: 10px 12px;
   font-family: var(--mono); font-size: 13px;
@@ -193,27 +195,28 @@ input, select {
   border-radius: 2px; transition: border .2s;
   -webkit-appearance: none;
 }
-input:focus { border-color: rgba(0,150,255,0.6); }
-input::placeholder { color: rgba(100,140,180,0.4); font-size: 11px; }
+input:focus { border-color: rgba(124,131,224,0.8); background: #fafaff; }
+input::placeholder { color: rgba(140,145,190,0.6); font-size: 11px; }
 .form-hint { font-size: 9px; color: var(--text-faint); margin-bottom: 12px; line-height: 1.6; }
 
 /* ---- RENTAL CARDS ---- */
 .rental-list { display: flex; flex-direction: column; gap: 10px; }
 .rental-card {
-  background: var(--bg3);
+  background: #ffffff;
   border: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(124,131,224,0.08);
   border-radius: 2px;
   overflow: hidden;
   transition: border-color .2s;
 }
-.progress-bar { height: 3px; background: rgba(0,100,180,0.12); }
+.progress-bar { height: 3px; background: rgba(150,160,220,0.15); }
 .progress-fill { height: 100%; transition: width 1s linear; }
 .card-body { padding: 14px; }
 .card-top {
   display: flex; justify-content: space-between;
   align-items: flex-start; gap: 10px; margin-bottom: 10px;
 }
-.prop-name { font-size: 13px; font-weight: 600; color: #e8f4fd; word-break: break-word; }
+.prop-name { font-size: 13px; font-weight: 600; color: #3d3f6e; word-break: break-word; }
 .badge {
   font-size: 8px; padding: 2px 7px; letter-spacing: 1px;
   border-radius: 2px; white-space: nowrap; flex-shrink: 0;
@@ -241,7 +244,7 @@ input::placeholder { color: rgba(100,140,180,0.4); font-size: 11px; }
 /* ---- EMPTY STATE ---- */
 .empty-state {
   text-align: center; padding: 50px 20px;
-  border: 1px dashed rgba(0,80,150,0.2);
+  border: 1px dashed rgba(150,160,220,0.3);
   color: var(--text-faint); font-size: 11px; letter-spacing: 2px;
   line-height: 2;
 }
@@ -252,14 +255,14 @@ input::placeholder { color: rgba(100,140,180,0.4); font-size: 11px; }
   bottom: calc(var(--safe-bot) + 20px);
   right: 20px; z-index: 100;
   width: 54px; height: 54px; border-radius: 50%;
-  background: linear-gradient(135deg, #0d47a1, #1976d2);
-  border: 1px solid #2196f3;
-  color: #90caf9; font-size: 26px; line-height: 1;
+  background: linear-gradient(135deg, #a78bfa, #7c83e0);
+  border: 1px solid #c4b5fd;
+  color: #ffffff; font-size: 26px; line-height: 1;
   cursor: pointer; display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 20px rgba(0,100,255,0.4);
+  box-shadow: 0 4px 20px rgba(167,139,250,0.4);
   transition: transform .2s, box-shadow .2s;
 }
-.fab:active { transform: scale(0.92); box-shadow: 0 2px 10px rgba(0,100,255,0.3); }
+.fab:active { transform: scale(0.92); box-shadow: 0 2px 10px rgba(167,139,250,0.25); }
 .fab-close { font-size: 22px; }
 
 /* ---- FOOTER ---- */
@@ -277,11 +280,12 @@ input::placeholder { color: rgba(100,140,180,0.4); font-size: 11px; }
 .toast {
   position: fixed; bottom: calc(var(--safe-bot) + 85px);
   left: 50%; transform: translateX(-50%);
-  background: rgba(20,40,60,0.95);
-  border: 1px solid rgba(0,150,255,0.3);
-  color: #90caf9; font-size: 11px; padding: 10px 18px;
+  background: rgba(255,255,255,0.97);
+  border: 1px solid rgba(124,131,224,0.4);
+  color: #3d3f6e;
+  box-shadow: 0 4px 20px rgba(124,131,224,0.2); font-size: 11px; padding: 10px 18px;
   border-radius: 4px; z-index: 200;
-  animation: toastIn .3s ease, toastOut .3s ease 2.7s forwards;
+  animation: toastIn .3s ease, toastOut .3s ease 3.7s forwards;
   white-space: nowrap; font-family: var(--mono);
 }
 @keyframes toastIn  { from{opacity:0;transform:translateX(-50%) translateY(10px)} to{opacity:1;transform:translateX(-50%) translateY(0)} }
@@ -294,8 +298,8 @@ input::placeholder { color: rgba(100,140,180,0.4); font-size: 11px; }
   display: flex; align-items: flex-end; justify-content: center;
 }
 .modal {
-  background: var(--bg2);
-  border: 1px solid rgba(0,130,255,0.3);
+  background: #f5f7ff;
+  border: 1px solid rgba(124,131,224,0.3);
   border-bottom: none;
   width: 100%; max-width: 600px;
   padding: 20px 16px calc(var(--safe-bot) + 20px);
@@ -681,7 +685,7 @@ function openModal(asEdit) {
   editId = asEdit || null;
   const fab = document.getElementById('fab');
   fab.innerHTML = '<span class="fab-close">✕</span>';
-  fab.style.background = 'linear-gradient(135deg,#4a0000,#8b0000)';
+  fab.style.background = 'linear-gradient(135deg,#f9a8d4,#fb7185)';
   document.getElementById('modalTitle').textContent = editId ? '▸ EDIT RENTAL' : '▸ ADD NEW RENTAL';
   document.getElementById('formSubmitBtn').textContent = editId ? 'UPDATE RENTAL' : 'CONFIRM RENTAL';
   document.getElementById('modalOverlay').style.display = 'flex';
@@ -715,7 +719,7 @@ function closeModal() {
   document.getElementById('modalOverlay').style.display = 'none';
   const fab = document.getElementById('fab');
   fab.innerHTML = '+';
-  fab.style.background = 'linear-gradient(135deg,#0d47a1,#1976d2)';
+  fab.style.background = 'linear-gradient(135deg,#a78bfa,#7c83e0)';
   editId = null;
 }
 
@@ -724,42 +728,65 @@ function handleOverlayClick(e) {
 }
 
 function submitForm() {
+  // Get raw values
   const prop = document.getElementById('fProp').value.trim();
-  const date = document.getElementById('fDate').value.trim();
-  const time = document.getElementById('fTime').value.trim();
-  const days = parseFloat(document.getElementById('fDays').value);
+  const dateRaw = document.getElementById('fDate').value.trim();
+  const timeRaw = document.getElementById('fTime').value.trim();
+  const daysRaw = document.getElementById('fDays').value.trim();
 
-  if (!prop || !date || !time || isNaN(days)) {
-    showToast('⚠ Fill in all fields'); return;
-  }
-  // Validate date format
-  if (!/^\d{2}\/\d{2}\/\d{2}$/.test(date)) {
-    showToast('⚠ Date: MM/DD/YY format'); return;
-  }
-  // Auto-complete time if needed
-  let fullTime = time;
-  if (/^\d{2}:\d{2}$/.test(time)) fullTime = time + ':00';
-  if (!/^\d{2}:\d{2}:\d{2}$/.test(fullTime)) {
-    showToast('⚠ Time: HH:MM:SS format'); return;
+  // Check empty fields
+  if (!prop) { showError('fProp', 'Enter a property name'); return; }
+  if (!dateRaw) { showError('fDate', 'Enter start date'); return; }
+  if (!timeRaw) { showError('fTime', 'Enter start time'); return; }
+  if (!daysRaw) { showError('fDays', 'Enter duration in days'); return; }
+
+  // Parse days
+  const days = parseFloat(daysRaw);
+  if (isNaN(days) || days <= 0) { showError('fDays', 'Enter a valid number of days'); return; }
+
+  // Parse date - accept MM/DD/YY or MM/DD/YYYY
+  let mm, dd, yy;
+  const dateParts = dateRaw.replace(/-/g, '/').split('/');
+  if (dateParts.length === 3) {
+    mm = dateParts[0].padStart(2,'0');
+    dd = dateParts[1].padStart(2,'0');
+    yy = dateParts[2].length === 4 ? dateParts[2].slice(2) : dateParts[2].padStart(2,'0');
+  } else {
+    showError('fDate', 'Use MM/DD/YY format e.g. 03/03/26'); return;
   }
 
-  let startDate;
-  try { startDate = parseTornDateTime(date, fullTime); }
-  catch(e) { showToast('⚠ Invalid date/time'); return; }
+  // Parse time - accept HH:MM or HH:MM:SS
+  let hh, mi, ss = '00';
+  const timeParts = timeRaw.split(':');
+  if (timeParts.length >= 2) {
+    hh = timeParts[0].padStart(2,'0');
+    mi = timeParts[1].padStart(2,'0');
+    ss = timeParts[2] ? timeParts[2].padStart(2,'0') : '00';
+  } else {
+    showError('fTime', 'Use HH:MM:SS format e.g. 00:02:32'); return;
+  }
+
+  // Build ISO date string
+  const isoStr = `20${yy}-${mm}-${dd}T${hh}:${mi}:${ss}Z`;
+  const startDate = new Date(isoStr);
+
+  if (isNaN(startDate.getTime())) {
+    showError('fDate', 'Invalid date — check MM/DD/YY'); return;
+  }
 
   const expiryDate = new Date(startDate.getTime() + days * 86400000);
+
   const entry = {
-    id:          editId || `r-${Date.now()}`,
-    property:    prop,
-    startDate:   startDate.toISOString(),
-    expiryDate:  expiryDate.toISOString(),
+    id:           editId || 'r-' + Date.now(),
+    property:     prop,
+    startDate:    startDate.toISOString(),
+    expiryDate:   expiryDate.toISOString(),
     durationDays: days,
-    createdAt:   new Date().toISOString()
+    createdAt:    new Date().toISOString()
   };
 
   if (editId) {
-    rentals = rentals.map(r => r.id === editId ? entry : r);
-    // Reset notified for this rental
+    rentals = rentals.map(function(r) { return r.id === editId ? entry : r; });
     delete notified[editId];
     showToast('✓ Rental updated');
   } else {
@@ -770,6 +797,17 @@ function submitForm() {
   saveData();
   render();
   closeModal();
+}
+
+function showError(fieldId, msg) {
+  // Highlight the field in red
+  const el = document.getElementById(fieldId);
+  if (el) {
+    el.style.borderColor = 'var(--red)';
+    el.focus();
+    setTimeout(function() { el.style.borderColor = ''; }, 3000);
+  }
+  showToast('⚠ ' + msg);
 }
 
 function deleteRental(id) {
@@ -788,7 +826,7 @@ function showToast(msg) {
   t.className = 'toast';
   t.textContent = msg;
   document.body.appendChild(t);
-  setTimeout(() => t.remove(), 3100);
+  setTimeout(() => t.remove(), 4100);
 }
 
 // ─── SERVICE WORKER ───────────────────────────────────────────────
