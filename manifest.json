@@ -1,0 +1,33 @@
+{
+  "name": "Torn Rental Ops Monitor",
+  "short_name": "Rental Ops",
+  "description": "Monitor your Torn City property rental expiry times with real-time alerts.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#080b0f",
+  "theme_color": "#0d47a1",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["utilities", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Add Rental",
+      "short_name": "Add",
+      "description": "Add a new rental to monitor",
+      "url": "/index.html#add"
+    }
+  ]
+}
