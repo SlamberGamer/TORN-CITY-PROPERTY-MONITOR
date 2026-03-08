@@ -1,3 +1,4 @@
+const ASSETS = ['/', '/index.html', '/manifest.json'];
 {
   "name": "Torn Rental Ops Monitor",
   "short_name": "Rental Ops",
