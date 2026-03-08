@@ -1,6 +1,6 @@
 # 🏠 Torn Rental Ops Monitor
 
-> A mobile-first Progressive Web App for monitoring **Torn City property rental expiry times** — with real-time countdowns, browser notifications, and offline support.
+> A mobile-first Progressive Web App for monitoring **Torn City property rental expiry times** — with real-time countdowns, browser notifications, offline support, and light/dark theme.
 
 **Developed by [SlamberGamer](https://www.torn.com)**
 
@@ -9,21 +9,22 @@
 ## 📱 Preview
 
 ```
-┌─────────────────────────────┐
-│  RENTAL OPS        21:34:05 │
-│  TORN CITY PROPERTY MONITOR │
-│  ● SYNCED 21:34:01          │
-├──────────┬──────────┬───────┤
-│  ACTIVE  │ EXPIRING │EXPIRED│
-│    3     │    1     │   0   │
-├─────────────────────────────┤
-│ Standard House - John       │
-│ ████████████░░░  EXPIRING   │
-│ Started: 03/03/26 00:02 TCT │
-│ Expires: 04/02/26 00:02 TCT │
-│ Duration: 30 days  78% done │
-│              14H 22M 05S    │
-└─────────────────────────────┘
+┌─────────────────────────────────┐
+│  RENTAL OPS          21:34:05   │
+│  TORN CITY PROPERTY MONITOR     │
+│  [ ☀️ ── ]           Sun 8 Mar  │
+│                      ● SYNCED   │
+├───────────┬───────────┬─────────┤
+│  ACTIVE   │ EXPIRING  │ EXPIRED │
+│     3     │     1     │    0    │
+├─────────────────────────────────┤
+│ Standard House - John           │
+│ ████████████░░░░  EXPIRING      │
+│ Started: 03/03/26 00:02 TCT     │
+│ Expires: 04/02/26 00:02 TCT     │
+│ Duration: 30 days   78% done    │
+│                   14H 22M 05S   │
+└─────────────────────────────────┘
 ```
 
 ---
@@ -35,6 +36,7 @@
 - **Browser notifications** — alerts at **24h**, **12h**, **1h** before expiry and **on expiry**
 - **Service Worker** — works fully offline after first load; fires background alerts even when the app isn't open
 - **Persistent storage** — all rentals saved to `localStorage`, survive page refreshes and phone restarts
+- **Light / Dark theme** — toggle sits in the header (below the title), preference saved across sessions
 - **Mobile-first design** — built for phone screens with large tap targets and clean layout
 - **PWA installable** — installs to Android/iOS home screen like a native app
 - **Color-coded urgency** — 🟢 safe → 🟡 72h → 🟠 24h → 🔴 1h → blinking red = critical
@@ -78,8 +80,8 @@ After deploying, confirm `manifest.json` looks like this:
   "start_url": "/index.html",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#080b0f",
-  "theme_color": "#0d47a1",
+  "background_color": "#f0f4ff",
+  "theme_color": "#a78bfa",
   "icons": [
     {
       "src": "icon-192.png",
@@ -128,8 +130,8 @@ torn-rental-pwa/
 | Field | Format | Example |
 |---|---|---|
 | Property Name | Free text | `Standard House - John` |
-| Start Date | `MM/DD/YY` | `03/03/26` |
 | Start Time | `HH:MM:SS` (Torn City Time / UTC) | `00:02:32` |
+| Start Date | `MM/DD/YY` | `03/03/26` |
 | Duration | Days (decimals ok) | `30` or `7.5` |
 
 > All times use **Torn City Time = UTC**. Find your rental start time in Torn's property page.
@@ -146,6 +148,12 @@ torn-rental-pwa/
 | Expiry reached | ⚠️ `EXPIRED: [Property]` |
 
 Notification state is persisted — you won't receive duplicate alerts across sessions.
+
+---
+
+## 🌗 Theme
+
+The app supports **light (pastel) and dark** themes. The toggle is located in the **top-left of the header**, just below the app title — it won't overlap any content on mobile. Your preference is saved automatically and restored on every launch.
 
 ---
 
