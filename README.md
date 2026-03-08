@@ -61,6 +61,53 @@
 3. Open `index.html` with Chrome
 4. Works immediately — note: background notifications require hosting (Option A)
 
+### Option C — Vercel *(fastest deploy, auto HTTPS)*
+
+1. Go to **vercel.com** → Log in
+2. Click **"Add New Project"** → drag & drop the `torn-rental-pwa` folder
+3. Click **Deploy** — done in ~30 seconds ✅
+4. Or link your GitHub repo for auto-deploy on every push
+
+After deploying, confirm `manifest.json` looks like this:
+
+```json
+{
+  "name": "Torn Rental Ops Monitor",
+  "short_name": "Rental Ops",
+  "description": "Monitor your Torn City property rental expiry times with real-time alerts.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#080b0f",
+  "theme_color": "#0d47a1",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["utilities", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Add Rental",
+      "short_name": "Add",
+      "description": "Add a new rental to monitor",
+      "url": "/index.html#add"
+    }
+  ]
+}
+```
+
+> Vercel provides HTTPS automatically — required for Service Workers and push notifications to work.
+
 ---
 
 ## 📂 File Structure

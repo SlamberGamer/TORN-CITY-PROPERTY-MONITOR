@@ -1,5 +1,11 @@
 const CACHE_NAME = 'torn-rental-v1';
-const ASSETS = ['/', '/index.html', '/manifest.json'];
+// Auto-detect base path — works on Vercel, GitHub Pages, or local
+const BASE = self.location.pathname.replace(/\/sw\.js$/, '') || '';
+const ASSETS = [
+  BASE + '/',
+  BASE + '/index.html',
+  BASE + '/manifest.json',
+];
 
 // Install - cache core files
 self.addEventListener('install', e => {
