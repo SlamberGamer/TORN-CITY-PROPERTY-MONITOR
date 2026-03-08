@@ -496,7 +496,7 @@ function tickClock() {
 // ─── PARSE / FORMAT ───────────────────────────────────────────────
 function parseTornDateTime(dateStr, timeStr) {
   const [mm,dd,yy] = dateStr.trim().split('/');
-  return new Date(`20${yy}-${mm}-${dd}T${timeStr.trim()}:00Z`);
+  return new Date(`20${yy}-${mm}-${dd}T${timeStr.trim()}Z`);
 }
 
 function formatCountdown(ms) {
